@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file, jsonify
+from flask import Flask, request, send_file, jsonify, render_template, redirect
 from PIL import Image, ImageDraw
 import requests
 from io import BytesIO
@@ -62,6 +62,14 @@ def ELLIPSE_crop_image():
         return send_file(cropped_image, mimetype='image/png')
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+        
+@app.route("/home")
+def home():
+    return render_template("index.html")
+    
+@app.route("/")
+def ROOT():
+    return redirect("/home")
 
 if __name__ == "__main__":
     app.run(debug=True)
