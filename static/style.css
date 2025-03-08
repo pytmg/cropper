@@ -15,6 +15,10 @@ select:hover {
   border-color: #82b2ff;
 }
 
+a {
+    color: #82ffb2;
+}
+
 html, body {
     font-family: Poppins;
     color: #fff;
@@ -88,4 +92,8 @@ html, body {
 #url:hover {
     border-color: #82b2ff;
     width: 500px;
+}
+
+hr {
+    opacity: 0.3;
 }

@@ -10,16 +10,14 @@
 <body>
     <div id="stars"></div>
     <div id="content">
-        <h1>Cropper | INDEX</h1>
-        <p>
-            <a href="/">/</a>
-            <br>
-            <a href="/home">/home</a>
-            <br>
-            <a href="/repo">/repo</a>
-            <br>
-            <a href="/index">/index</a> <- You are here
-            <hr><a href="/">Go back</a></p>
+        <h1>Cropper Tool</h1>
+        <p>Crop images, simple, really.</p>
+        <input type="url" placeholder="https://example.com/image.jpeg" id="url">
+        <select id="type">
+            <option value="circle">Circle</option>
+            <option value="ellipse">Ellipse</option>
+        </select>
+        <input type="button" value="Crop Image" id="submit">
     </div>
     <script src="/static/script.js"></script>
 </body>

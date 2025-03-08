@@ -23,6 +23,7 @@ def crop_image_to_circle(image_url):
     draw.ellipse(bounding_box, fill=255)
     img.putalpha(mask)
     output = BytesIO()
+    ext = image_url.split(".")[-1] # gets the extension of the URL image
     img.save(output, format='PNG')
     output.seek(0)
     return output
@@ -50,7 +51,7 @@ def CIRCLE_crop_image():
         cropped_image = crop_image_to_circle(image_url)
         return send_file(cropped_image, mimetype='image/png')
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return render_template('500.html'), 500
 
 @app.route('/ellipse', methods=['GET'])
 def ELLIPSE_crop_image():
@@ -61,15 +62,47 @@ def ELLIPSE_crop_image():
         cropped_image = crop_image_to_ellipse(image_url)
         return send_file(cropped_image, mimetype='image/png')
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return render_template('500.html'), 500
         
 @app.route("/home")
 def home():
-    return render_template("index.html")
+    return render_template("home.html"), 200
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(403)
+def not_found(error):
+    return render_template('403.html'), 403
+
+@app.errorhandler(502)
+def not_found(error):
+    return render_template('502.html'), 502
+
+@app.errorhandler(503)
+def not_found(error):
+    return render_template('503.html'), 503
+
+@app.errorhandler(500)
+def not_found(error):
+    return render_template('500.html'), 500
     
+@app.route("/503")
+def internal_server_error():
+    return render_template("503.html"), 200
+
 @app.route("/")
 def ROOT():
     return redirect("/home")
+
+@app.route("/repo")
+def repo():
+    return redirect("https://github.com/pytmg/cropper")
+
+@app.route("/index")
+def index():
+    return render_template("index.html"), 200
 
 if __name__ == "__main__":
     app.run(debug=True)
