@@ -87,10 +87,6 @@ def not_found(error):
 @app.errorhandler(500)
 def not_found(error):
     return render_template('500.html'), 500
-    
-@app.route("/503")
-def internal_server_error():
-    return render_template("503.html"), 200
 
 @app.route("/")
 def ROOT():
@@ -105,4 +101,4 @@ def index():
     return render_template("index.html"), 200
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
