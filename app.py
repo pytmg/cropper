@@ -69,23 +69,23 @@ def home():
     return render_template("home.html"), 200
 
 @app.errorhandler(404)
-def not_found(error):
+def err_404(error):
     return render_template('404.html'), 404
 
 @app.errorhandler(403)
-def not_found(error):
+def err_403(error):
     return render_template('403.html'), 403
 
 @app.errorhandler(502)
-def not_found(error):
+def err_502(error):
     return render_template('502.html'), 502
 
 @app.errorhandler(503)
-def not_found(error):
+def err_503(error):
     return render_template('503.html'), 503
 
 @app.errorhandler(500)
-def not_found(error):
+def err_500(error):
     return render_template('500.html'), 500
 
 @app.route("/")
