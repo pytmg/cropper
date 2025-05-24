@@ -1,7 +1,9 @@
 # Image Cropper
 
-This is a backend site designed to crop images into either circles or ellipses.
+Railway Trial finally ended. No clue how long ago, but it's ended.
 
-This won't be hosted for *too* long as it's on [Railway](https://railway.com/).
+$0.27 left as well 😭
 
-https://pytmg.github.io/cropper
+Thanks if literally anyone used it.
+
+I'll try to get it back up somehow.
